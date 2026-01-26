@@ -9,7 +9,6 @@ const router = useRouter()
 if (auth.isInitialized && !auth.isAuthenticated) {
   router.push('/login')
 }
-
 const user = computed(() => auth.user)
 </script>
 

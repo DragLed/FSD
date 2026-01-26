@@ -28,7 +28,7 @@ const submit = async () => {
 
     console.log('Successful login')
     const user = await getMe()
-    authStore.setUser(user!)
+    authStore.setUser(user)
     router.push('/')
   } catch {
     error.value = 'Server error'
