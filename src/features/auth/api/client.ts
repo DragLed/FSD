@@ -30,3 +30,10 @@ export async function register(
   return response.data
 }
 
+export async function logout(
+): Promise<UserView> {
+  const response = await UserAuth.logoutUsersLogoutPost({})
+
+  return response.data
+}
+

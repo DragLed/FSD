@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { logout } from '@/features/auth/';
 import './.css'
 </script>
 
@@ -7,8 +8,8 @@ import './.css'
     <div class="header-go-to-main">
       <router-link to="/" class="nav-link">На главную</router-link>
     </div>
-    <div v-if="false" class="header-logout">
-      <button @click="1 + 1" class="nav-link">Выйти</button>
+    <div v-if="true" class="header-logout">
+      <button @click="logout" class="nav-link">Выйти</button>
       <router-link to="/user" class="nav-link">Профиль</router-link>
     </div>
     <div v-else class="header-auth-links">
