@@ -15,12 +15,17 @@ async function onLogin() {
     loading.value = true
     const response = await login(username.value, password.value)
     console.log(response)
+    router.push('/')
   } catch (e) {
-    error.value = 'error logging in'
+    if (e.status === 401) {
+      console.error(e)
+      error.value = 'invalid login or password'
+      return
+    }
+    error.value = 'something went wrong'
     console.error(e)
   } finally {
     loading.value = false
-    router.push('/')
   }
 }
 </script>

@@ -8,7 +8,7 @@ import './.css'
     <div class="header-go-to-main">
       <router-link to="/" class="nav-link">На главную</router-link>
     </div>
-    <div v-if="true" class="header-logout">
+    <div v-if="false" class="header-logout">
       <button @click="logout" class="nav-link">Выйти</button>
       <router-link to="/user" class="nav-link">Профиль</router-link>
     </div>

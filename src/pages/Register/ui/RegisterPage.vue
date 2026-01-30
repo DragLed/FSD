@@ -15,14 +15,19 @@ async function onRegister() {
     loading.value = true
     const response = await register(username.value, password.value)
     console.log(response)
+    const loginResponse = await login(username.value, password.value)
+    console.log(loginResponse)
+    router.push('/')
   } catch (e) {
+    if (e.status === 409) {
+      console.error(e)
+      error.value = 'login already exists'
+      return
+    }
     error.value = 'error registering'
     console.error(e)
   } finally {
-    const response = await login(username.value, password.value)
-    console.log(response)
     loading.value = false
-    router.push('/')
   }
 }
 </script>
