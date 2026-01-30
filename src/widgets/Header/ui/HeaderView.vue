@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import "./.css"
+import './.css'
 </script>
 
 <template>
@@ -9,7 +8,7 @@ import "./.css"
       <router-link to="/" class="nav-link">На главную</router-link>
     </div>
     <div v-if="false" class="header-logout">
-      <button @click="1+1" class="nav-link">Выйти</button>
+      <button @click="1 + 1" class="nav-link">Выйти</button>
       <router-link to="/user" class="nav-link">Профиль</router-link>
     </div>
     <div v-else class="header-auth-links">

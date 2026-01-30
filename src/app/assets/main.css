@@ -7,11 +7,10 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #121212, #1e1e2f);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
   transition: background 0.5s ease;
 }
-
 
 a,
 .green {
@@ -20,5 +19,3 @@ a,
   transition: 0.4s;
   padding: 3px;
 }
-
-
