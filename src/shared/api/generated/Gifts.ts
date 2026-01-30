@@ -10,12 +10,10 @@
  * ---------------------------------------------------------------
  */
 
-import { GiftView, HTTPValidationError } from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+import { GiftView, HTTPValidationError } from './data-contracts'
+import { ContentType, HttpClient, RequestParams } from './http-client'
 
-export class Gifts<
-  SecurityDataType = unknown,
-> extends HttpClient<SecurityDataType> {
+export class Gifts<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
   /**
    * @description Получение всех подарков пользователя
    *
@@ -27,10 +25,10 @@ export class Gifts<
   getAllMyGiftsGiftsGet = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/gifts/`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Добавление подарка
    *
@@ -42,12 +40,12 @@ export class Gifts<
   createGiftGiftsPost = (data: GiftView, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/gifts/`,
-      method: "POST",
+      method: 'POST',
       body: data,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Получение всех подарков
    *
@@ -59,10 +57,10 @@ export class Gifts<
   getAllGiftsGiftsAllGet = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/gifts/all/`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Удаление подарка по ID
    *
@@ -74,10 +72,10 @@ export class Gifts<
   removeGiftGiftsGiftIdDelete = (giftId: number, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/gifts/${giftId}`,
-      method: "DELETE",
-      format: "json",
+      method: 'DELETE',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Получение подарка по ID
    *
@@ -89,10 +87,10 @@ export class Gifts<
   getGiftByIdGiftsGiftIdGet = (giftId: number, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/gifts/${giftId}`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Редактирование подарка по ID
    *
@@ -101,19 +99,15 @@ export class Gifts<
    * @summary Edit Gift
    * @request PUT:/gifts/{giftId}
    */
-  editGiftGiftsGiftIdPut = (
-    giftId: number,
-    data: GiftView,
-    params: RequestParams = {},
-  ) =>
+  editGiftGiftsGiftIdPut = (giftId: number, data: GiftView, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/gifts/${giftId}`,
-      method: "PUT",
+      method: 'PUT',
       body: data,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Получение всех подарков пользователя по ID пользователя
    *
@@ -122,14 +116,11 @@ export class Gifts<
    * @summary Get All Gifts By User Id
    * @request GET:/gifts/user/{userID}
    */
-  getAllGiftsByUserIdGiftsUserUserIdGet = (
-    userId: number,
-    params: RequestParams = {},
-  ) =>
+  getAllGiftsByUserIdGiftsUserUserIdGet = (userId: number, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/gifts/user/${userId}`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
 }

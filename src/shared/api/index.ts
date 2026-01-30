@@ -1,1 +1,1 @@
-export {UserView} from "./generated/data-contracts"
+export { UserView } from './generated/data-contracts'

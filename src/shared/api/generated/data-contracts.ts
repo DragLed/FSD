@@ -13,35 +13,35 @@
 /** GiftView */
 export interface GiftView {
   /** Name */
-  name: string;
+  name: string
   /** Description */
-  description: string | null;
+  description: string | null
   /** Price */
-  price: number;
+  price: number
   /** Photo */
-  photo: string | null;
+  photo: string | null
 }
 
 /** HTTPValidationError */
 export interface HTTPValidationError {
   /** Detail */
-  detail?: ValidationError[];
+  detail?: ValidationError[]
 }
 
 /** UserView */
 export interface UserView {
   /** Username */
-  username: string;
+  username: string
   /** Password */
-  password: string;
+  password: string
 }
 
 /** ValidationError */
 export interface ValidationError {
   /** Location */
-  loc: (string | number)[];
+  loc: (string | number)[]
   /** Message */
-  msg: string;
+  msg: string
   /** Error Type */
-  type: string;
+  type: string
 }

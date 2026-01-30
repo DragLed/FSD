@@ -1,1 +1,1 @@
-export {login, register, logout} from "./api/client"
+export { login, register, logout } from './api/client'

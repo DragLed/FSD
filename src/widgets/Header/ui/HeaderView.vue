@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { logout } from '@/features/auth/';
+import { logout } from '@/features/auth/'
 import './.css'
 </script>
 

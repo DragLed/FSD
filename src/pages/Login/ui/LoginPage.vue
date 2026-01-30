@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import { login } from "@/features/auth"
+import { ref } from 'vue'
+import { login } from '@/features/auth'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const username = ref("")
-const password = ref("")
+const username = ref('')
+const password = ref('')
 const error = ref<string | null>(null)
 const loading = ref(false)
 
@@ -16,16 +16,14 @@ async function onLogin() {
     const response = await login(username.value, password.value)
     console.log(response)
   } catch (e) {
-    error.value = "error logging in"
+    error.value = 'error logging in'
     console.error(e)
-  }
-  finally {
+  } finally {
     loading.value = false
-    router.push("/")
+    router.push('/')
   }
 }
 </script>
-
 
 <template>
   <div class="auth-page">

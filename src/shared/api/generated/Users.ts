@@ -10,12 +10,10 @@
  * ---------------------------------------------------------------
  */
 
-import { HTTPValidationError, UserView } from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+import { HTTPValidationError, UserView } from './data-contracts'
+import { ContentType, HttpClient, RequestParams } from './http-client'
 
-export class Users<
-  SecurityDataType = unknown,
-> extends HttpClient<SecurityDataType> {
+export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
   /**
    * @description Получение всех пользователей
    *
@@ -27,10 +25,10 @@ export class Users<
   getAllUsersUsersGet = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/users/`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Создание пользователя
    *
@@ -42,12 +40,12 @@ export class Users<
   createUserUsersPost = (data: UserView, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/users/`,
-      method: "POST",
+      method: 'POST',
       body: data,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Получение информации о текущем пользователе по JWT токену
    *
@@ -59,10 +57,10 @@ export class Users<
   getMeUsersMeGet = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/users/me`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Получение информации о пользователе по ID
    *
@@ -74,10 +72,10 @@ export class Users<
   getUserUsersUserIdGet = (userId: string, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/users/${userId}`,
-      method: "GET",
-      format: "json",
+      method: 'GET',
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Проверка логина и пароля пользователя и создание JWT токена
    *
@@ -86,18 +84,15 @@ export class Users<
    * @summary Verify Password
    * @request POST:/users/verify_password
    */
-  verifyPasswordUsersVerifyPasswordPost = (
-    data: UserView,
-    params: RequestParams = {},
-  ) =>
+  verifyPasswordUsersVerifyPasswordPost = (data: UserView, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/users/verify_password`,
-      method: "POST",
+      method: 'POST',
       body: data,
       type: ContentType.Json,
-      format: "json",
+      format: 'json',
       ...params,
-    });
+    })
   /**
    * @description Выход пользователя и удаление JWT токена из cookies
    *
@@ -109,8 +104,8 @@ export class Users<
   logoutUsersLogoutPost = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/users/logout`,
-      method: "POST",
-      format: "json",
+      method: 'POST',
+      format: 'json',
       ...params,
-    });
+    })
 }

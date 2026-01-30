@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import { register,login } from "@/features/auth"
+import { ref } from 'vue'
+import { register, login } from '@/features/auth'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const username = ref("")
-const password = ref("")
+const username = ref('')
+const password = ref('')
 const error = ref<string | null>(null)
 const loading = ref(false)
 
@@ -16,14 +16,13 @@ async function onRegister() {
     const response = await register(username.value, password.value)
     console.log(response)
   } catch (e) {
-    error.value = "error registering"
+    error.value = 'error registering'
     console.error(e)
-  }
-  finally {
+  } finally {
     const response = await login(username.value, password.value)
     console.log(response)
     loading.value = false
-    router.push("/")
+    router.push('/')
   }
 }
 </script>
