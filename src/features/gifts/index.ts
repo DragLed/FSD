@@ -1,1 +1,1 @@
-export { postGift, getAllGift, delGift } from './api/client'
+export { postGift, getAllGift, delGift, editGift, getGift } from './api/client'

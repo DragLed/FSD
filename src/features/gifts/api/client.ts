@@ -33,3 +33,20 @@ export async function delGift(giftId: number): Promise<string> {
 
   return response.data
 }
+
+export async function getGift(giftId: number) {
+  const response = await GiftsClient.getGiftByIdGiftsGiftIdGet(giftId)
+
+  return response.data
+}
+
+export async function editGift(giftId: number, GiftView: GiftView): Promise<string> {
+  const response = await GiftsClient.editGiftGiftsGiftIdPut(giftId, {
+    name: GiftView.name,
+    description: GiftView.description,
+    price: GiftView.price,
+    photo: GiftView.photo,
+  })
+
+  return response.data
+}

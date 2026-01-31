@@ -23,9 +23,9 @@ async function submit() {
     price: price.value,
     photo: photo.value,
   })
-  name.value = (parseInt(name.value) + 1).toString()
-  description.value = (parseInt(description.value) + 1).toString()
-  price.value = price.value + 1
+  name.value = ''
+  description.value = ''
+  price.value = 0
   photo.value = ''
 }
 </script>

@@ -1,0 +1,47 @@
+.success {
+  color: green;
+}
+
+/* Контейнер с текстовыми данными */
+.gift-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* Текст как input */
+.gift-title {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  text-align: left;
+  line-height: 1.4;
+  cursor: default;
+}
+
+.gift-text {
+}
+
+/* Ссылка внутри */
+.gift-text a {
+  color: #00ffae;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s ease;
+}
+
+.gift-text a:hover {
+  color: #6bffe0;
+  text-decoration: underline;
+}
+
+.edit {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}

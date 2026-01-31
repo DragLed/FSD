@@ -23,7 +23,7 @@ function logoutHandler() {
 
       <div v-if="authStore.isAuthenticated" class="header-logout">
         <button @click="logoutHandler" class="nav-link">Выйти</button>
-        <router-link to="/user" class="nav-link">Профиль</router-link>
+        <!-- <router-link to="/user" class="nav-link">Профиль</router-link> -->
       </div>
 
       <div v-else class="header-auth-links">

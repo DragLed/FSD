@@ -1,7 +1,8 @@
 .gift-form {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   width: 300px;
   margin: 2rem auto;
@@ -20,6 +21,8 @@
   padding: 0.8rem 1rem;
   border-radius: 10px;
   border: none;
+  width: 150%;
+  text-align: left;
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.05);
   color: #e0e0e0;
