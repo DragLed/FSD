@@ -1,0 +1,58 @@
+.gift-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  width: 300px;
+  margin: 2rem auto;
+}
+
+/* Заголовок */
+.gift-form .title {
+  font-size: 25px;
+  background: linear-gradient(90deg, #00ffae, #00bfae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Поля ввода */
+.gift-form .input {
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.gift-form .input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px #00ffae;
+}
+
+/* Кнопка */
+.gift-form .btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00ffae, #00bfae);
+  color: #121212;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 174, 0.4);
+}
+
+.gift-form .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 255, 174, 0.6);
+}
+
+/* Ошибки */
+.gift-form .error {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+}

@@ -1,6 +1,10 @@
+<script setup lang="ts">
+import { GiftList, GiftForm } from '@/widgets/Gift/'
+</script>
+
 <template>
-  <div>
-    <h1>Home Page</h1>
-    <p>Welcome to the Home Page</p>
+  <div class="container">
+    <GiftForm />
+    <GiftList />
   </div>
 </template>

@@ -1,1 +1,2 @@
-export { login, register, logout } from './api/client'
+export { login, register, logout, me } from './api/client'
+export { getMe } from './init/Auth'

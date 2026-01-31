@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { login } from '@/features/auth'
-import { useRouter } from 'vue-router'
+import './Login.css'
 
+import { ref } from 'vue'
+import { login, me } from '@/features/auth'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/entities/user'
+
+const authStore = useAuthStore()
 const router = useRouter()
 
 const username = ref('')
@@ -15,6 +19,8 @@ async function onLogin() {
     loading.value = true
     const response = await login(username.value, password.value)
     console.log(response)
+    const meResponse = await me()
+    authStore.setUser(meResponse.id)
     router.push('/')
   } catch (e) {
     if (e.status === 401) {
@@ -32,44 +38,20 @@ async function onLogin() {
 
 <template>
   <div class="auth-page">
-    <div class="container page">
-      <div class="row">
-        <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign in</h1>
+    <h1 class="title">Sign in</h1>
 
-          <ul v-if="error" class="error-messages">
-            <li>{{ error }}</li>
-          </ul>
+    <form class="form" @submit.prevent="onLogin">
+      <input v-model="username" class="input" type="text" placeholder="Login" required />
 
-          <form @submit.prevent="onLogin">
-            <fieldset :disabled="loading">
-              <fieldset class="form-group">
-                <input
-                  v-model="username"
-                  class="form-control form-control-lg"
-                  type="text"
-                  placeholder="login"
-                  required
-                />
-              </fieldset>
-
-              <fieldset class="form-group">
-                <input
-                  v-model="password"
-                  class="form-control form-control-lg"
-                  type="password"
-                  placeholder="Password"
-                  required
-                />
-              </fieldset>
-
-              <button class="btn btn-lg btn-primary pull-xs-right">
-                {{ loading ? 'Loading...' : 'Sign in' }}
-              </button>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </div>
+      <input v-model="password" class="input" type="password" placeholder="Password" required />
+      <ul v-if="error" class="error-messages">
+        <li>{{ error }}</li>
+      </ul>
+      <!-- <p><input type="checkbox" id="remember-me" class="remember-me"><label for="remember-me" class="remember-me">Remember me</label><router-link to="/register">Forgot password?</router-link></p> -->
+      <button class="btn btn-lg btn-primary pull-xs-right">
+        {{ loading ? 'Loading...' : 'Sign in' }}
+      </button>
+      <p>Not a member <router-link to="/register">Sing up</router-link></p>
+    </form>
   </div>
 </template>

@@ -1,0 +1,93 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+
+  background-color: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header-go-to-main,
+.header-logout,
+.header-auth-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+/* ===== NAV LINK / BUTTON ===== */
+
+button.nav-link {
+  all: unset; /* убираем дефолтные стили кнопки */
+  box-sizing: border-box;
+
+  display: inline-flex; /* важно: выравнивание как у ссылок */
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 30px;
+  border-radius: 12px;
+
+  background: linear-gradient(135deg, #00ffae, #00bfae);
+  color: #121212;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 174, 0.4);
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 15px;
+
+  background: linear-gradient(135deg, #00ffae, #00bfae);
+  color: #121212;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 174, 0.4);
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+}
+/* Свечение */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(0, 255, 174, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1);
+}
+
+.nav-link:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 255, 174, 0.6);
+}

@@ -1,8 +1,13 @@
 <script setup>
 import HeaderView from '@/widgets/Header/'
 import FooterView from '@/widgets/Footer/'
-
 import '../assets/appmain.css'
+import { onMounted } from 'vue'
+import { getMe } from '@/features/auth'
+
+onMounted(() => {
+  getMe()
+})
 </script>
 
 <template>

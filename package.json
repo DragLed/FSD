@@ -13,6 +13,7 @@
     "codgen": "npx swagger-typescript-api generate --path http://127.0.0.1:8000/openapi.json -o ./src/shared/api/generated --modular --axios"
   },
   "dependencies": {
+    "pinia": "^3.0.4",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4"
   },

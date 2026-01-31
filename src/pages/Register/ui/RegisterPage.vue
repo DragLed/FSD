@@ -2,7 +2,9 @@
 import { ref } from 'vue'
 import { register, login } from '@/features/auth'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/entities/user'
 
+const authStore = useAuthStore()
 const router = useRouter()
 
 const username = ref('')
@@ -17,6 +19,7 @@ async function onRegister() {
     console.log(response)
     const loginResponse = await login(username.value, password.value)
     console.log(loginResponse)
+    authStore.setUser(loginResponse.id)
     router.push('/')
   } catch (e) {
     if (e.status === 409) {
@@ -33,44 +36,20 @@ async function onRegister() {
 </script>
 <template>
   <div class="auth-page">
-    <div class="container page">
-      <div class="row">
-        <div class="col-md-6 offset-md-3 col-xs-12">
-          <h1 class="text-xs-center">Sign up</h1>
+    <h1 class="title">Sign up</h1>
 
-          <ul v-if="error" class="error-messages">
-            <li>{{ error }}</li>
-          </ul>
+    <form class="form" @submit.prevent="onRegister">
+      <input v-model="username" class="input" type="text" placeholder="Login" required />
 
-          <form @submit.prevent="onRegister">
-            <fieldset :disabled="loading">
-              <fieldset class="form-group">
-                <input
-                  v-model="username"
-                  class="form-control form-control-lg"
-                  type="text"
-                  placeholder="login"
-                  required
-                />
-              </fieldset>
+      <input v-model="password" class="input" type="password" placeholder="Password" required />
+      <ul v-if="error" class="error-messages">
+        <li>{{ error }}</li>
+      </ul>
 
-              <fieldset class="form-group">
-                <input
-                  v-model="password"
-                  class="form-control form-control-lg"
-                  type="password"
-                  placeholder="Password"
-                  required
-                />
-              </fieldset>
-
-              <button class="btn btn-lg btn-primary pull-xs-right">
-                {{ loading ? 'Loading...' : 'Sign up' }}
-              </button>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </div>
+      <button class="btn btn-lg btn-primary pull-xs-right">
+        {{ loading ? 'Loading...' : 'Sign up' }}
+      </button>
+      <p>Already have an account? <router-link to="/login">Sign in</router-link></p>
+    </form>
   </div>
 </template>

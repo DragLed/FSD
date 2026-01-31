@@ -1,1 +1,1 @@
-export { UserView } from './generated/data-contracts'
+export { UserView, GiftView } from './generated/data-contracts'

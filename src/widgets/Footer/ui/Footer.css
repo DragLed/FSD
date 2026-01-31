@@ -1,0 +1,17 @@
+/* ===== FOOTER ===== */
+.app-footer {
+  padding: 20px;
+  text-align: center;
+
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+
+  background-color: rgba(18, 18, 18, 0.6);
+  backdrop-filter: blur(6px);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.footer-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+}

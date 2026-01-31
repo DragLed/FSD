@@ -25,7 +25,13 @@ export async function register(username: string, password: string): Promise<User
 }
 
 export async function logout(): Promise<UserView> {
-  const response = await UserAuth.logoutUsersLogoutPost({})
+  const response = await UserAuth.logoutUsersLogoutPost()
+
+  return response.data
+}
+
+export async function me() {
+  const response = await UserAuth.getMeUsersMeGet()
 
   return response.data
 }

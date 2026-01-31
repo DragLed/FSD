@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #e0e0e0;
+}
+
+.title {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #00ffae, #00bfae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow:
+      0 0 5px #00ffae,
+      0 0 10px #00bfae;
+  }
+  100% {
+    text-shadow:
+      0 0 20px #00ffae,
+      0 0 30px #00bfae;
+  }
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px #00ffae;
+}
+
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1rem;
+  width: 300px;
+  margin: 2rem auto;
+}
