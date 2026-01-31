@@ -2,7 +2,7 @@
 import { useRoute } from 'vue-router'
 const route = useRoute()
 
-const giftId = parseInt(route.params.id)
+const giftId = (route.params.id).toString()
 </script>
 <template>
   <div class="form">
