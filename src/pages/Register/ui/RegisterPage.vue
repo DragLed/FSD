@@ -19,7 +19,7 @@ async function onRegister() {
     console.log(response)
     const loginResponse = await login(username.value, password.value)
     console.log(loginResponse)
-    authStore.setUser(loginResponse.id)
+    await authStore.setUser(loginResponse.id)
     router.push('/')
   } catch (e) {
     if (e.status === 409) {

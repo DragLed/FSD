@@ -35,3 +35,9 @@ export async function me() {
 
   return response.data
 }
+
+export async function getUser(id: string) {
+  const response = await UserAuth.getUserUsersUserIdGet(id)
+
+  return response.data
+}

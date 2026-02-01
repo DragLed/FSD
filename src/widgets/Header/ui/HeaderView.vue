@@ -12,6 +12,13 @@ function logoutHandler() {
   authStore.logout()
   router.push('/login')
 }
+
+function Go_to_profile(id: string) {
+  router.push({ name: 'user', params: { id } })
+}
+
+
+
 </script>
 
 <template>
@@ -23,7 +30,7 @@ function logoutHandler() {
 
       <div v-if="authStore.isAuthenticated" class="header-logout">
         <button @click="logoutHandler" class="nav-link">Выйти</button>
-        <!-- <router-link to="/user" class="nav-link">Профиль</router-link> -->
+        <button @click="Go_to_profile(authStore.user.toString())" class="nav-link">Профиль</button>
       </div>
 
       <div v-else class="header-auth-links">
