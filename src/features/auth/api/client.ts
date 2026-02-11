@@ -1,13 +1,8 @@
-import { Users } from '@/shared/api/generated/Users'
 import type { UserView } from '@/shared/api/'
-
-const UserAuth = new Users({
-  baseURL: 'http://127.0.0.1:8000',
-  withCredentials: true,
-})
+import { UserRequest } from '@/shared/api/'
 
 export async function login(username: string, password: string): Promise<UserView> {
-  const response = await UserAuth.verifyPasswordUsersVerifyPasswordPost({
+  const response = await UserRequest.verifyPasswordUsersVerifyPasswordPost({
     username,
     password,
   })
@@ -16,28 +11,10 @@ export async function login(username: string, password: string): Promise<UserVie
 }
 
 export async function register(username: string, password: string): Promise<UserView> {
-  const response = await UserAuth.createUserUsersPost({
+  const response = await UserRequest.createUserUsersPost({
     username,
     password,
   })
-
-  return response.data
-}
-
-export async function logout(): Promise<UserView> {
-  const response = await UserAuth.logoutUsersLogoutPost()
-
-  return response.data
-}
-
-export async function me() {
-  const response = await UserAuth.getMeUsersMeGet()
-
-  return response.data
-}
-
-export async function getUser(id: string) {
-  const response = await UserAuth.getUserUsersUserIdGet(id)
 
   return response.data
 }

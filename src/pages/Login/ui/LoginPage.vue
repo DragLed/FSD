@@ -2,9 +2,9 @@
 import './Login.css'
 
 import { ref } from 'vue'
-import { login, me } from '@/features/auth'
+import { login } from '@/features/auth'
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/entities/user'
+import { useAuthStore, me } from '@/entities/user'
 
 const authStore = useAuthStore()
 const router = useRouter()

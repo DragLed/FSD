@@ -1,5 +1,4 @@
-import { useAuthStore } from '@/entities/user/'
-import { me } from '@/features/auth'
+import { useAuthStore, me } from '@/entities/user/'
 
 export async function getMe() {
   const authStore = useAuthStore()

@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { register, login } from '@/features/auth'
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/entities/user'
+import { useAuthStore, me } from '@/entities/user'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -19,7 +19,8 @@ async function onRegister() {
     console.log(response)
     const loginResponse = await login(username.value, password.value)
     console.log(loginResponse)
-    await authStore.setUser(loginResponse.id)
+    const meResponse = await me()
+    authStore.setUser(meResponse.id)
     router.push('/')
   } catch (e) {
     if (e.status === 409) {

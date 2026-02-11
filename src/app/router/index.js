@@ -9,8 +9,8 @@ const routes = [
   { path: '/login', component: LoginPage },
   { path: '/register', component: RegisterPage },
   { path: '/gifts/:id', component: GiftPage, name: 'gift' },
-  { path: "/user/:id", component: ProfilePage, id: "user" },
-  { path: "/user/", component: ProfilePage},
+  { path: '/user/:id', component: ProfilePage, name: 'user' },
+  { path: '/user', component: ProfilePage },
 ]
 
 const router = createRouter({

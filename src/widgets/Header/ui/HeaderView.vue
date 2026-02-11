@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import './Header.css'
-
-import { logout } from '@/features/auth/'
-import { useAuthStore } from '@/entities/user/'
+import { useAuthStore, logout } from '@/entities/user/'
 import router from '@/app/router'
 
 const authStore = useAuthStore()
@@ -16,9 +14,6 @@ function logoutHandler() {
 function Go_to_profile(id: string) {
   router.push({ name: 'user', params: { id } })
 }
-
-
-
 </script>
 
 <template>

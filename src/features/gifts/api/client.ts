@@ -1,10 +1,5 @@
-import { Gifts } from '@/shared/api/generated/Gifts'
+import { GiftsRequest } from '@/shared/api/'
 import type { GiftView } from '@/shared/api/'
-
-const GiftsClient = new Gifts({
-  baseURL: 'http://127.0.0.1:8000',
-  withCredentials: true,
-})
 
 export async function postGift(
   name: string,
@@ -12,7 +7,7 @@ export async function postGift(
   price: number,
   photo: string
 ): Promise<GiftView> {
-  const response = await GiftsClient.createGiftGiftsPost({
+  const response = await GiftsRequest.createGiftGiftsPost({
     name,
     description,
     price,
@@ -23,25 +18,25 @@ export async function postGift(
 }
 
 export async function getAllGift() {
-  const response = await GiftsClient.getAllMyGiftsGiftsGet()
+  const response = await GiftsRequest.getAllMyGiftsGiftsGet()
 
   return response.data
 }
 
 export async function delGift(giftId: number): Promise<string> {
-  const response = await GiftsClient.removeGiftGiftsGiftIdDelete(giftId)
+  const response = await GiftsRequest.removeGiftGiftsGiftIdDelete(giftId)
 
   return response.data
 }
 
 export async function getGift(giftId: number) {
-  const response = await GiftsClient.getGiftByIdGiftsGiftIdGet(giftId)
+  const response = await GiftsRequest.getGiftByIdGiftsGiftIdGet(giftId)
 
   return response.data
 }
 
 export async function editGift(giftId: number, GiftView: GiftView): Promise<string> {
-  const response = await GiftsClient.editGiftGiftsGiftIdPut(giftId, {
+  const response = await GiftsRequest.editGiftGiftsGiftIdPut(giftId, {
     name: GiftView.name,
     description: GiftView.description,
     price: GiftView.price,
