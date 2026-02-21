@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { onMounted, ref } from 'vue'
-import './ProfilePage.css'
+import './Profilepage.css'
 import { getUser } from '@/entities/user'
 
 const route = useRoute()

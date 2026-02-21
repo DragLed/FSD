@@ -2,7 +2,7 @@ import type { UserView } from '@/shared/api/'
 import { UserRequest } from '@/shared/api/'
 
 export async function login(username: string, password: string): Promise<UserView> {
-  const response = await UserRequest.verifyPasswordUsersVerifyPasswordPost({
+  const response = await UserRequest.loginUsersLoginPost({
     username,
     password,
   })

@@ -10,10 +10,12 @@
  * ---------------------------------------------------------------
  */
 
-import { HTTPValidationError, UserView } from './data-contracts'
-import { ContentType, HttpClient, RequestParams } from './http-client'
+import { HTTPValidationError, UserCreate } from "./data-contracts";
+import { ContentType, HttpClient, RequestParams } from "./http-client";
 
-export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
+export class Users<
+  SecurityDataType = unknown,
+> extends HttpClient<SecurityDataType> {
   /**
    * @description Получение всех пользователей
    *
@@ -25,10 +27,10 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
   getAllUsersUsersGet = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/users/`,
-      method: 'GET',
-      format: 'json',
+      method: "GET",
+      format: "json",
       ...params,
-    })
+    });
   /**
    * @description Создание пользователя
    *
@@ -37,15 +39,15 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
    * @summary Create User
    * @request POST:/users/
    */
-  createUserUsersPost = (data: UserView, params: RequestParams = {}) =>
+  createUserUsersPost = (data: UserCreate, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/users/`,
-      method: 'POST',
+      method: "POST",
       body: data,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
-    })
+    });
   /**
    * @description Получение информации о текущем пользователе по JWT токену
    *
@@ -57,10 +59,10 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
   getMeUsersMeGet = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/users/me`,
-      method: 'GET',
-      format: 'json',
+      method: "GET",
+      format: "json",
       ...params,
-    })
+    });
   /**
    * @description Получение информации о пользователе по ID
    *
@@ -72,27 +74,27 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
   getUserUsersUserIdGet = (userId: string, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
       path: `/users/${userId}`,
-      method: 'GET',
-      format: 'json',
+      method: "GET",
+      format: "json",
       ...params,
-    })
+    });
   /**
    * @description Проверка логина и пароля пользователя и создание JWT токена
    *
    * @tags Пользователь
-   * @name VerifyPasswordUsersVerifyPasswordPost
-   * @summary Verify Password
-   * @request POST:/users/verify_password
+   * @name LoginUsersLoginPost
+   * @summary Login
+   * @request POST:/users/login
    */
-  verifyPasswordUsersVerifyPasswordPost = (data: UserView, params: RequestParams = {}) =>
+  loginUsersLoginPost = (data: UserCreate, params: RequestParams = {}) =>
     this.request<any, HTTPValidationError>({
-      path: `/users/verify_password`,
-      method: 'POST',
+      path: `/users/login`,
+      method: "POST",
       body: data,
       type: ContentType.Json,
-      format: 'json',
+      format: "json",
       ...params,
-    })
+    });
   /**
    * @description Выход пользователя и удаление JWT токена из cookies
    *
@@ -104,8 +106,8 @@ export class Users<SecurityDataType = unknown> extends HttpClient<SecurityDataTy
   logoutUsersLogoutPost = (params: RequestParams = {}) =>
     this.request<any, any>({
       path: `/users/logout`,
-      method: 'POST',
-      format: 'json',
+      method: "POST",
+      format: "json",
       ...params,
-    })
+    });
 }

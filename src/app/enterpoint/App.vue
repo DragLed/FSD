@@ -18,6 +18,7 @@ onMounted(() => {
     <router-view />
   </main>
   <footer>
+
     <FooterView />
   </footer>
 </template>
